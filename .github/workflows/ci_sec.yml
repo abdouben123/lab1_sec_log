@@ -32,4 +32,4 @@ jobs:
               -Dsonar.projectKey=MonProjetSecurise \
               -Dsonar.sources=. \
               -Dsonar.host.url=${SONAR_HOST}
-              -Dsonar.token=${SONAR_TOKEN}
+              
