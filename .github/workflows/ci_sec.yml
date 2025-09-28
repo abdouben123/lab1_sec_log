@@ -27,7 +27,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST: ${{secrets.SONAR_HOST}}
 
-        runs: |
+        run: |
           npx --yes sonar-scanner \
               -Dsonar.projectKey=MonProjetSecurise \
               -Dsonar.sources=. \
