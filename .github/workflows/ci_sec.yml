@@ -9,27 +9,27 @@ permissions:
   security-events: write
   
 
-  jobs:
-    sonar-test:
-      name: SonarQube Check
-      runs-on: self-hosted
-      steps:
-        - uses: actions/checkout@v4
-          with: 
-            fetch-depth: 0
+jobs:
+  sonar-test:
+    name: SonarQube Check
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+        with: 
+          fetch-depth: 0
 
-        - uses: actions/setup-node@v4
-          with:
-            node-version: '20'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-        - name: Scanner
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-            SONAR_HOST: ${{secrets.SONAR_HOST}}
+      - name: Scanner
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST: ${{secrets.SONAR_HOST}}
 
-          runs: |
-            npx --yes sonar-scanner \
-                -Dsonar.projectKey=MonProjetSecurise \
-                -Dsonar.sources=. \
-                -Dsonar.host.url=${SONAR_HOST}
-                -Dsonar.login=${SONAR_TOKEN}
+        runs: |
+          npx --yes sonar-scanner \
+              -Dsonar.projectKey=MonProjetSecurise \
+              -Dsonar.sources=. \
+              -Dsonar.host.url=${SONAR_HOST}
+              -Dsonar.login=${SONAR_TOKEN}
